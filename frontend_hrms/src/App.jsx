@@ -1,14 +1,19 @@
+import React from "react"
 import { useState } from 'react'
-import Login from './components/Login'
+import login from './components/login'
+import home from './components/home'
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-   <div className="App">
-    <Login/>
-   </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<homePage />} /> 
+        <Route path="/login" element={<loginPage />} /> 
+        
+      </Routes>
+    </Router>
+  );
 }
 
 export default App

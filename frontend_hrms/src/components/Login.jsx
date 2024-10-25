@@ -1,6 +1,6 @@
 // src/components/LoginPage.jsx
 import React, { useState } from "react";
-import "./LoginPage.css";
+import "./login.css";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");

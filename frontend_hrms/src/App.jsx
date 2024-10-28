@@ -1,18 +1,15 @@
 import React from "react"
-import { useState } from 'react'
-import login from './components/login'
-import home from './components/home'
+import LoginPage from './components/Login'
+import Home from "./components/Home"
 
-
+import { Route,Routes,Router } from "react-router-dom"
 function App() {
   return (
-    <Router>
       <Routes>
-        <Route path="/" element={<homePage />} /> 
-        <Route path="/login" element={<loginPage />} /> 
+        <Route path="/" element={<Home/>} /> 
+        <Route path="/login" element={<LoginPage />} /> 
         
       </Routes>
-    </Router>
   );
 }
 

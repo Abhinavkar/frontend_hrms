@@ -1,21 +1,39 @@
 // src/components/LoginPage.jsx
 import React, { useState } from "react";
-import "./login.css";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Basic form validation
     if (!username || !password) {
       alert("Please fill out both fields.");
       return;
     }
-    // Logic for authenticating user
-    console.log("Logging in with:", { username, password });
-    alert("Login successful!"); // replace with actual auth logic
+
+    try {
+      const response = await fetch("http://localhost:8000/auth/login/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        //   "Access-Control-Allow-Origin":"http://localhost:8000"
+        },
+        body: JSON.stringify({ username, password }), 
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log("Login successful:", data);
+        alert("Login successful!");
+      } else {
+        alert(data.message || "Login failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      alert("An error occurred. Please try again.");
+    }
   };
 
   return (

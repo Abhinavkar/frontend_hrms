@@ -1,10 +1,8 @@
 
 import React from "react";
-import "./home.css";
-
 import { Link } from "react-router-dom";
-
-const home = () => {
+import "./home.css";
+export default function Home(){
   return (
     <div style={{ padding: "20px" }}>
       <h1>Welcome to the Homepage</h1>
@@ -16,6 +14,5 @@ const home = () => {
       </Link>
     </div>
   );
-};
+}
 
-export default home;

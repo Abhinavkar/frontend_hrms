@@ -1,34 +1,36 @@
-// src/components/LoginPage.jsx
 import React, { useState } from "react";
-
+import  fetchToken from "./Helper";
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  function setCookie(access){
+    document.cookie = `refresh=${access}`
+  }
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!username || !password) {
       alert("Please fill out both fields.");
       return;
     }
-
     try {
       const response = await fetch("http://localhost:8000/auth/login/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-        //   "Access-Control-Allow-Origin":"http://localhost:8000"
         },
         body: JSON.stringify({ username, password }), 
       });
 
       const data = await response.json();
+      console.log(data);
 
-      if (response.ok) {
-        console.log("Login successful:", data);
+      if (response.ok) {  
+        localStorage.setItem("token", data.access);
+        setCookie(data.access);
+        // window.location.href = "/";
         alert("Login successful!");
       } else {
-        alert(data.message || "Login failed. Please try again.");
+        alert(data.message || "Invalid Credentials");
       }
     } catch (error) {
       console.error("Error during login:", error);
@@ -58,6 +60,9 @@ const LoginPage = () => {
         </div>
         <button type="submit">Login</button>
       </form>
+
+      <button onClick={fetchToken}>Token Expiry Check </button>
+      
     </div>
   );
 };

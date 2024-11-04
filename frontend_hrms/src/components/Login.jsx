@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import  fetchToken from "./Helper";
+import fetchToken from "./Helper";
+
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  function setCookie(access){
-    document.cookie = `refresh=${access}`
+
+  function setCookie(refreshToken) {
+    document.cookie = `refresh=${refreshToken}; path=/; SameSite=Lax; Secure`;
   }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!username || !password) {
@@ -26,8 +29,9 @@ const LoginPage = () => {
 
       if (response.ok) {  
         localStorage.setItem("token", data.access);
-        setCookie(data.access);
-        // window.location.href = "/";
+        setCookie(data.refresh); // Use refresh token
+        setUsername(""); // Clear username
+        setPassword(""); // Clear password
         alert("Login successful!");
       } else {
         alert(data.message || "Invalid Credentials");
@@ -61,8 +65,7 @@ const LoginPage = () => {
         <button type="submit">Login</button>
       </form>
 
-      <button onClick={fetchToken}>Token Expiry Check </button>
-      
+      <button onClick={async () => await fetchToken()}>Token Expiry Check</button>
     </div>
   );
 };

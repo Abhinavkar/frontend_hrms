@@ -1,23 +1,24 @@
 export default async function TokenExpiry() {
-    const refreshToken = document.cookie
-    console.log("cookie", refreshToken)
+    console.log(document.cookie);
+    const refreshToken = document.cookie.match(/(^|;\s*)refresh=([^;]*)/)?.[2];
+
+    console.log("cookie", refreshToken);
     if (!refreshToken) {
         console.error("No refresh token found.");
-        return null; // Handle the absence of a refresh token
+        return null; 
     }
 
     console.log("Entered function");
-
     async function fetchToken() {
         const token = localStorage.getItem('token');
         console.log('Token Expiry Function hit');
-
+    
         try {
             const response = await fetch('http://localhost:8000/auth/token_refresh/', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json',
-                    "Authorization":"Bearer " + token
-                 },
+                headers: { 
+                    'Content-Type': 'application/json',
+                },
                 credentials: 'include', 
                 body: JSON.stringify({ refresh: refreshToken }) 
             });
@@ -27,7 +28,7 @@ export default async function TokenExpiry() {
             try {
                 data = await response.json();
             } catch (jsonError) {
-                console.error('Failed to parse JSON:', jsonError);
+                console.error('Failerd to parse JSON:', jsonError);
                 throw new Error('Invalid response from server');
             }
 
@@ -36,7 +37,7 @@ export default async function TokenExpiry() {
             }
 
             console.log('New Access Token:', data.access);
-            setCookie(refresh,data.refresh);
+            setCookie('refresh', data.refresh);
             localStorage.setItem('token', data.access); 
             return data.access;
         } catch (error) {
@@ -48,6 +49,7 @@ export default async function TokenExpiry() {
     return fetchToken(); // Call the fetchToken function
 }
 
-function setCookie(name, value){
-    document.cookie = `${name}=${value}`;
+function setCookie(name, value, days = 7) {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = `${name}=${value}; expires=${expires}; path=/`;
 }

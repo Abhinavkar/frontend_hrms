@@ -1,0 +1,133 @@
+/* src/components/LoginPage.css */
+.login-box {
+  width: 350px;
+  padding: 30px;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.login-box h2 {
+  margin: 0 0 20px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #67b26f, #4ca2cd); /* Gradient background */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-form-container {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+  
+  .login-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    /* width: 300px; */
+  }
+  
+  form div {
+    margin-bottom: 15px;
+  }
+  
+  /* label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  } */
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  /* Styling for input fields */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border 0.3s;
+}
+.input-field:focus {
+  border: 1px solid #74ebd5;
+}
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+  
+.login-button:hover {
+  background-color: #45A049;
+}
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  button:active {
+    background-color: #388e3c;
+  }
+  
+  .token-button {
+    background-color: #f1c40f;
+    transition: background-color 0.3s ease;
+  }
+  
+  .token-button:hover {
+    background-color: #e0b80f;
+  }
+  
+  .token-button:active {
+    background-color: #d4a40f;
+  }
+  
+  @media (max-width: 480px) {
+    .login-form-container {
+      padding: 20px;
+      width: 90%;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+ 

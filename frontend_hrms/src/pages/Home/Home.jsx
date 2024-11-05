@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import "./home.css";
+import "./Home.css";
 export default function Home(){
   return (
     <div style={{ padding: "20px" }}>
@@ -15,4 +15,3 @@ export default function Home(){
     </div>
   );
 }
-

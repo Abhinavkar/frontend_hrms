@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import fetchToken from "./Helper";
+import fetchToken from "/src/components/Helper";
+import "./Login.css";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -44,11 +45,12 @@ const LoginPage = () => {
 
   return (
     <div className="login-container">
+      <div className="login-box">
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Username:</label>
-          <input
+          <input class = "input-field"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -56,16 +58,16 @@ const LoginPage = () => {
         </div>
         <div>
           <label>Password:</label>
-          <input
+          <input class = "input-field"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit">Login</button>
+        <button class = "login-button" type="submit">Login</button>
       </form>
-
-      <button onClick={async () => await fetchToken()}>Token Expiry Check</button>
+      </div>
+      {/* <button onClick={async () => await fetchToken()}>Token Expiry Check</button> */}
     </div>
   );
 };

@@ -1,15 +1,13 @@
-import React from "react"
-import LoginPage from './components/Login'
-import Home from "./components/Home"
+// App.jsx
+import React from 'react';
+import RouterComponent from './RouterComponent'; // Import the Router
 
-import { Route,Routes,Router } from "react-router-dom"
-function App() {
+const App = () => {
   return (
-      <Routes>
-        <Route path="/" element={<Home/>} /> 
-        <Route path="/login" element={<LoginPage />} /> 
-      </Routes>
+    <div>
+      <RouterComponent />  {/* Render the Router component */}
+    </div>
   );
-}
+};
 
-export default App
+export default App;

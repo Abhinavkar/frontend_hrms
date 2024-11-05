@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import fetchToken from "/src/components/Helper";
 import "./Login.css";
+import { Route } from "react-router-dom";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -34,6 +35,7 @@ const LoginPage = () => {
         setUsername(""); // Clear username
         setPassword(""); // Clear password
         alert("Login successful!");
+        window.location.href="./"
       } else {
         alert(data.message || "Invalid Credentials");
       }

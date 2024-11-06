@@ -2,21 +2,28 @@ import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 
 function Navbar() {
-  // State to manage login status
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // Simulating a login status check (you can replace this with real authentication logic)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const clearCookies = () => {
+    const cookies = document.cookie.split("; ");
+    for (let cookie of cookies) {
+      const eqPos = cookie.indexOf("=");
+      const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+    }
+  };  
+
   useEffect(() => {
-    const token = localStorage.getItem("token"); // Assuming token is used for authentication
+    const token = localStorage.getItem("token");
     if (token) {
       setIsLoggedIn(true); // User is logged in
     }
   }, []);
 
   const handleLogout = () => {
-    // Implement logout logic
-    localStorage.removeItem("token"); // Remove token on logout
-    setIsLoggedIn(false); // Update the state to reflect logout
+    localStorage.removeItem("token"); 
+    clearCookies(); 
+    setIsLoggedIn(false); 
   };
 
   return (
@@ -29,7 +36,7 @@ function Navbar() {
           <>
             <li><a href="./projects">Projects</a></li>
             <li><a href="./employee-management">Employee Management</a></li>
-            <li><a href="#" onClick={handleLogout}>Logout</a></li>
+            <li><a href="./login" onClick={handleLogout}>Logout</a></li>
           </>
         ) : (
           <>

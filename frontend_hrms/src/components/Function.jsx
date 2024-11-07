@@ -17,9 +17,9 @@ const TableComponent = ({ title, apiUrl }) => {
           }
         });
         const result = await response.json();
-        setData(result);
-        if (result.length > 0) {
-          const filteredColumns = Object.keys(result[0]).filter(
+        setData(result.results);
+        if (result.results.length > 0) {
+          const filteredColumns = Object.keys(result.results[0]).filter(
             column => column !== 'dept_id' && column !== 'bu_id' && column !== 'skills_id'&& column !== 'techstack_id' && column !== 'role_id'
           );
           setColumns(filteredColumns);

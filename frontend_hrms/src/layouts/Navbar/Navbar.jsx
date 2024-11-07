@@ -33,14 +33,14 @@ function Navbar({ toggleSidebar }) {
       <ul className="nav-links">
         {isLoggedIn ? (
           <>
-            <li><a href="#home">🏠 Home</a></li>
+            <li><a href="#home"> Home</a></li>
             <li><a href="./projects">Projects</a></li>
             <li><a href="./employee-management">Employee Management</a></li>
             <li><a href="#" onClick={handleLogout}>Logout</a></li>
           </>
         ) : (
-          <div className="auth-links">
-            <a href="./login">Login</a>
+          <div className="nav-links">
+            <a href="./">Login</a>
             <a href="./register">Register</a>
           </div>
         )}

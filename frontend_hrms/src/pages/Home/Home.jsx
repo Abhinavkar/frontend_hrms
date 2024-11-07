@@ -8,7 +8,7 @@ export default function Home(){
     <div style={{ padding: "20px" }}>
 
       <TableComponent title="Department"
-      apiUrl="http://localhost:8000/employee/get-business-unit/"
+      apiUrl="http://localhost:8000/employee/get-department-list/"
      / >
     </div>
   );

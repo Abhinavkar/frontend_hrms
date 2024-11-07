@@ -1,35 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 
-
-function Navbar() {
-  // State to manage login status
+function Navbar({ toggleSidebar }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  // Simulating a login status check (you can replace this with real authentication logic)
+  const clearCookies = () => {
+    const cookies = document.cookie.split("; ");
+    for (let cookie of cookies) {
+      const eqPos = cookie.indexOf("=");
+      const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+    }
+  };
+
   useEffect(() => {
-    const token = localStorage.getItem("token"); // Assuming token is used for authentication
+    const token = localStorage.getItem("token");
     if (token) {
-      setIsLoggedIn(true); // User is logged in
+      setIsLoggedIn(true);
     }
   }, []);
 
   const handleLogout = () => {
-    // Implement logout logic
-    localStorage.removeItem("token"); // Remove token on logout
-    setIsLoggedIn(false); // Update the state to reflect logout
-  };
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+    localStorage.removeItem("token");
+    clearCookies();
+    setIsLoggedIn(false);
+    window.location.reload();
   };
 
   return (
     <nav className="navbar">
-      <div className="sidebar-toggle">
-        HRMS
-      </div>
+      <div className="logo">HRMS</div>
       <ul className="nav-links">
         {isLoggedIn ? (
           <>

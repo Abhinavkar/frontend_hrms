@@ -35,7 +35,7 @@ const LoginPage = () => {
         setUsername(""); // Clear username
         setPassword(""); // Clear password
         alert("Login successful!");
-        window.location.href="./"
+        window.location.href="./home"
       } else {
         alert(data.message || "Invalid Credentials");
       }

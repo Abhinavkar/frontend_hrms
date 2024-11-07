@@ -1,13 +1,15 @@
 // App.jsx
 import React from 'react';
 import RouterComponent from './RouterComponent'; // Import the Router
-import Navbar from "./layouts/Navbar/Navbar"
+
+import Layout from './layouts/Layout';
 const App = () => {
   return (
 
     <div>
-      <Navbar/>
-      <RouterComponent />  {/* Render the Router component */}
+      <Layout>
+          <RouterComponent /> 
+      </Layout> 
     </div>
   );
 };

@@ -20,7 +20,7 @@ const TableComponent = ({ title, apiUrl }) => {
         setData(result);
         if (result.length > 0) {
           const filteredColumns = Object.keys(result[0]).filter(
-            column => column !== 'dept_id' && column !== 'bu_id' && column !== 'skill_id'
+            column => column !== 'dept_id' && column !== 'bu_id' && column !== 'skills_id'&& column !== 'techstack_id' && column !== 'role_id'
           );
           setColumns(filteredColumns);
         }
@@ -35,7 +35,7 @@ const TableComponent = ({ title, apiUrl }) => {
   return (
     <div>
       <h2>{title}</h2>
-      <table border="1" style={{ width: '30%',padding:"20px 20px", borderCollapse: 'collapse',}}>
+      <table border="1" style={{ width: '100%', borderCollapse: 'collapse',}}>
         <thead>
           <tr>
             {columns.map((column) => (

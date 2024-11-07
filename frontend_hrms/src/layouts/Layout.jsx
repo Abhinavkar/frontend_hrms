@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
-import Navbar from './Navbar';
-import Sidebar from './Sidebar';
-// import './Layout.css'; // Add styles for layout
+import React, { useState, useEffect } from 'react';
+import Navbar from "./Navbar/Navbar";
+import Sidebar from './Sidebar/Sidebar';
+import './Layout.css';
 
-function Layout() {
+function Layout({ children }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Check if the user is logged in
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
+  }, []);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -12,15 +19,18 @@ function Layout() {
 
   return (
     <div className="layout">
-      <Navbar toggleSidebar={toggleSidebar} />
-      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      <Navbar />
+      {isLoggedIn && (
+        <>
+          <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+          <div className="hamburger-container">
+            <button className="hamburger" onClick={toggleSidebar}>☰</button>
+          </div>
+        </>
+      )}
       <div className="content">
-        {/* Place your main content here */}
-        <h1>Welcome to HRMS</h1>
+        {children}
       </div>
-      <button className="hamburger" onClick={toggleSidebar}>
-        ☰
-      </button>
     </div>
   );
 }

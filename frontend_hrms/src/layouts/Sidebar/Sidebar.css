@@ -1,0 +1,41 @@
+.sidebar {
+    position: fixed;
+    /* display: flex; */
+    top: 0;
+    left: -250px; /* Hide sidebar off-screen */
+    width: 250px;
+    height: 100%;
+    background: #333;
+    color: white;
+    transition: left 0.3s ease;
+    z-index: 1000;
+   
+  }
+
+  
+  .sidebar.open {
+    left: 0; /* Show sidebar */
+  }
+  
+  .sidebar-links {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar-links li {
+    padding: 15px;
+  }
+  
+  .sidebar-links li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  

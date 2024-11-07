@@ -25,7 +25,6 @@ const RouterComponent = () => {
     <Route path="/roles" element={<Roles />} />
     <Route path="/employee" element={<Employee />} />
     <Route path="/techstack" element={<Techstack/>} />
-
   </Routes>
   
   

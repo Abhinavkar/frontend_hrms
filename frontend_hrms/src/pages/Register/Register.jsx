@@ -16,7 +16,7 @@ const HRUserRegistration = () => {
         throw new Error("Failed to fetch departments");
       }
       const data = await response.json();
-      setDepartments(data); 
+      setDepartments(data.results); 
     } catch (error) {
       console.error("Error fetching departments:", error);
       setError("An error occurred while fetching departments.");
@@ -66,7 +66,7 @@ const HRUserRegistration = () => {
 
   return (
     <div className="container">
-      <h2>HR User Registration</h2>
+      <h2>New HR Registration</h2>
       <form onSubmit={handleRegister} className="form">
         <div className="inputGroup">
           <label>Username:</label>

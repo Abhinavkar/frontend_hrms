@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import fetchToken from "/src/components/Helper";
 import "./Login.css";
 import { Route } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   function setCookie(refreshToken) {
     document.cookie = `refresh=${refreshToken}; path=/; SameSite=Lax; Secure`;
@@ -35,7 +36,8 @@ const LoginPage = () => {
         setUsername(""); // Clear username
         setPassword(""); // Clear password
         alert("Login successful!");
-        window.location.href="./home"
+
+        window.location.href="./dashboard"
       } else {
         alert(data.message || "Invalid Credentials");
       }

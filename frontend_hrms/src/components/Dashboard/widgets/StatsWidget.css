@@ -1,0 +1,27 @@
+/* src/components/Dashboard/widgets/StatsWidget.css */
+.stats-widget {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 22%;
+    text-align: center;
+  }
+  
+  .value {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .change {
+    font-size: 14px;
+  }
+  
+  .positive {
+    color: green;
+  }
+  
+  .negative {
+    color: red;
+  }
+  

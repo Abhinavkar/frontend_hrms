@@ -1,0 +1,52 @@
+/* Navbar styles */
+.navbar {
+    background: linear-gradient(to bottom, #a1c6ea, #ffffff); /* Light blue to white gradient */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Logo Container for Navbar */
+  .navbar .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar .logo {
+    max-height: 40px; /* Adjust logo size */
+    margin-right: 10px;
+  }
+  
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-links li {
+    padding: 10px 15px;
+  }
+  
+  .navbar-links li a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .navbar-links li a:hover {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+  }
+  
+  /* Alternating background for navbar items */
+  .navbar-links li:nth-child(even) {
+    background-color: #eaf1fb; /* Light blue background for even items */
+  }
+  
+  .navbar-links li:nth-child(odd) {
+    background-color: #ffffff; /* White background for odd items */
+  }
+  

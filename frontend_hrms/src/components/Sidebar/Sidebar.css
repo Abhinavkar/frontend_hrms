@@ -1,0 +1,86 @@
+/* Sidebar Container */
+.sidebar {
+  position: fixed;
+  top: 0;
+  /* left: -250px;   */
+  left: 0;
+  width: 250px;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1000;
+  padding-top: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  background: linear-gradient(to bottom, #2972bb, #ffffff); 
+  transform: translateX(-100%);
+}
+
+/* When Sidebar is open */
+.sidebar.open {
+  transform: translateX(0); 
+}
+
+/* Logo Container */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+/* Sidebar Links */
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-links li {
+  margin: 20px 0;
+}
+
+.sidebar-links li a {
+  /* color: #333; */
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+  padding: 10px 0;
+}
+
+.sidebar-links li a:hover {
+  /* background-color: #1b4d74;  */
+  background-color: #3a77a9;;
+  border-radius: 5px;
+}
+
+
+/* Close Button Styling */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .sidebar {
+    left: -100%; /* Hide sidebar off-screen on small devices */
+  }
+
+  .sidebar.open {
+    left: 0; /* Show sidebar when toggled on mobile */
+  }
+}
+.sidebar.closed {
+  display: none;
+}

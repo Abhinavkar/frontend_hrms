@@ -15,7 +15,9 @@ const TableComponent = ({ title, apiUrl }) => {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
           }
+          
         });
+        
         const result = await response.json();
         setData(result.results);
         if (result.results.length > 0) {
@@ -44,13 +46,28 @@ const TableComponent = ({ title, apiUrl }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((item, index) => (
+          {/* {data && data.map((item, index) => (
             <tr key={index}>
               {columns.map((column) => (
                 <td key={column}>{item[column]}</td>
               ))}
-            </tr>
-          ))}
+            </tr> */}
+            
+          {data && data.length > 0 ? (
+             data.map((item, index) => (
+                <tr key={index}>
+                    {columns && columns.map((column, colIndex) => (
+                        <td key={colIndex}>{item[column] !== undefined ? item[column] : 'N/A'}</td>
+            ))}
+        </tr>
+    ))
+) : (
+    <tr>
+        <td colSpan={columns ? columns.length : 1} style={{ textAlign: 'center' }}>
+            No data available
+        </td>
+    </tr>
+          )}
         </tbody>
       </table>
     </div>

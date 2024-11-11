@@ -1,0 +1,22 @@
+/* src/components/ProgressTrackWidget.css */
+.progress-track-widget ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.progress-track-widget li {
+  padding: 8px 0;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.progress {
+  height: 8px;
+  background-color: #4caf50;
+}

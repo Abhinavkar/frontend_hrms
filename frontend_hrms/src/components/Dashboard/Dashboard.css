@@ -3,79 +3,182 @@
 .dashboard-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 20px;
   gap: 20px;
+  background-color: #f7f8fa;
 }
 
 .widget-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
 .widget {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 200px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
   text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .widget h3 {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
 }
 
 .widget p {
-  font-size: 1.5rem;
+  font-size: 24px;
+  color: #4caf50;
   font-weight: bold;
-  color: #4CAF50;
 }
 
-.charts-container {
+.dashboard {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   gap: 20px;
-  width: 100%;
 }
 
-.chart {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 300px;
-  flex: 1;
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
-.chart-title {
+.row + .row {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.transactions-widget,
+.products-widget,
+.team-members-widget,
+.todo-list-widget,
+.progress-track-widget {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.transactions-widget h3,
+.products-widget h3,
+.team-members-widget h3,
+.todo-list-widget h3,
+.progress-track-widget h3 {
+  font-size: 18px;
+  color: #333;
+  font-weight: 500;
   text-align: center;
-  font-weight: bold;
-  font-size: 1rem;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
 }
 
-@media only screen and (max-width: 768px) {
-  .widget-container {
-      flex-direction: column;
-      align-items: center;
-  }
-  .charts-container {
-      flex-direction: column;
-      align-items: center;
-  }
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 14px;
 }
 
-@media only screen and (max-width: 480px) {
-  .widget {
-      width: 100%;
-  }
-  .chart {
-      width: 100%;
-      max-width: none;
-  }
+.table th,
+.table td {
+  padding: 8px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+  color: #666;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.add-button {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background-color: #3f51b5;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.status-paid {
+  background-color: #4caf50;
+}
+
+.status-pending {
+  background-color: #ff9800;
+}
+
+.status-in-meeting {
+  background-color: #ff5722;
+}
+
+.status-offline {
+  background-color: #f44336;
+}
+
+.todo-list-widget ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+.todo-list-widget li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.progress-track-widget .progress-item {
+  margin: 10px 0;
+}
+
+.progress-track-widget .progress-bar {
+  background-color: #d9e2ef;
+  height: 10px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.progress-track-widget .progress-fill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.progress-track-widget .progress-fill.green {
+  background-color: #4caf50;
+}
+
+.progress-track-widget .progress-fill.blue {
+  background-color: #2196f3;
+}
+
+.progress-track-widget .progress-fill.orange {
+  background-color: #ff9800;
+}
+
+.progress-track-widget .progress-fill.purple {
+  background-color: #9c27b0;
 }

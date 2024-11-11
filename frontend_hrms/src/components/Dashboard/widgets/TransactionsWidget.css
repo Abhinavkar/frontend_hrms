@@ -1,0 +1,16 @@
+/* src/components/TransactionsWidget.css */
+.transactions-widget {
+  /* Additional specific styling for Transactions Widget */
+}
+
+.transactions-widget table {
+  width: 100%;
+}
+
+.transactions-widget .status.pending {
+  color: orange;
+}
+
+.transactions-widget .status.paid {
+  color: green;
+}

@@ -3,30 +3,11 @@ import React from 'react';
 import TableComponent from '../Function';
 import StatsWidget from '../Dashboard/widgets/StatsWidget'
 import './Dashboard.css';
-
-const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [
-        {
-            label: 'Dataset 1',
-            backgroundColor: 'rgba(75,192,192,1)',
-            borderColor: 'rgba(0,0,0,1)',
-            borderWidth: 1,
-            data: [65, 59, 80, 81, 56, 55, 40],
-        },
-    ],
-};
-const chartOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    scales: {
-        x: { beginAtZero: true },
-        y: { beginAtZero: true },
-    },
-    plugins: {
-        legend: { display: false }
-    }
-};
+import TeamMembersWidget from './widgets/TeamMembersWidget';
+import ProgressTrackWidget from './widgets/ProgressTrackWidget';
+import TransactionsWidget from './widgets/TransactionsWidget';
+import TodoListWidget from './widgets/TodoListWidget';
+import ProductsWidget from './widgets/ProductsWidget';
 function Dashboard() {
   return (
    
@@ -49,10 +30,23 @@ function Dashboard() {
                     <p>56</p>
                 </div>
             </div>
+            <div className="dashboard">
+      <div className="row">
+        <TransactionsWidget />
+        <ProductsWidget />
+      </div>
+      <div className="row">
+        <TeamMembersWidget />
+        <TodoListWidget />
+        <ProgressTrackWidget />
+      </div>
+    </div>
             
-        </div>
+    </div>
+        
     );
   
 }
+
 
 export default Dashboard;

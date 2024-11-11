@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import StatsWidget from '../Dashboard/widgets/StatsWidget';
 function Navbar({ toggleSidebar }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 

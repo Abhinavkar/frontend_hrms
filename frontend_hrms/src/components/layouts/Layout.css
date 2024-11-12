@@ -11,7 +11,6 @@
   left: -250px;
   width: 250px;
   height: 100%;
-  background: #333;
   color: white;
   transition: left 0.3s ease;
   z-index: 1000;
@@ -49,7 +48,7 @@
 
 .content {
   margin-left: 250px; /* Space for sidebar */
-  padding: 20px
+  padding: 20px;
   width: calc(100% - 250px);
   transition: margin-left 0.3s ease;
 }
